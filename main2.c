@@ -982,11 +982,15 @@ int ft_printf(const char *s1, ...)
 }
 
 
-// int main(void)
-// {
-//     int result;
+int main(void)
+{
+    int result;
 
-//     result = 0;
+    result = 0;
+      result = ft_printf("%X", 4294967295u);
+    printf("\n%d\n", result);
+   
+}
     // result = ft_printf("%7s%-5s", "hello", "world");
     // printf("\n%d\n", result);      
     // result = ft_printf("hello, %s.", "gavin");
