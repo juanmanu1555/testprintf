@@ -381,14 +381,14 @@ void printf_arg(t_config *config, va_list *args, int arg_count)
     if ((s3 = va_arg(*args, char *)) == NULL)
     {
 
-        //s3 = ft_strdup("(null)");
+        s3 = ft_strdup("(null)");
 
         // nose si esto es necesario dado que en este momento no tengo lo test. y no estoy en MAC
         // en linux si te pasan NULL y precision menor de 6 el "(null)" nose escribe ni cuenta.
-        if (config->precision >= 6 || config->precision == -1)
-            s3 = ft_strdup("(null)");
-        else
-            s3 = ft_strdup("");
+       // if (config->precision >= 6 || config->precision == -1)
+       //     s3 = ft_strdup("(null)");
+   //     else
+     //       s3 = ft_strdup("");
         // config->width += 6;
         //printf("%d\n", config->width);
     }
@@ -494,7 +494,7 @@ void printf_arg_int(t_config *config, va_list *args, int arg_count)
         config->width = len;
 
     //printf("\n%c\n", config->width_char);
-
+	
     if (config->width > config->precision)
     {
         if (config->is_minus)
@@ -537,13 +537,13 @@ void printf_arg_int(t_config *config, va_list *args, int arg_count)
             }
             else
             {
-                if (is_negative == 1)
-                    ft_putchar('-');
                 while (z < config->width - config->precision)
                 {
-                    ft_putchar(config->width_char);
+                    ft_putchar(' ');
                     z++;
                 }
+                if (is_negative == 1)
+                    ft_putchar('-');
             }
             z = 0;
             while (ceros > 0)
@@ -960,14 +960,14 @@ int ft_printf(const char *s1, ...)
     //return (0);
 }
 
-int main(void)
-{
-    int result;
+//int main(void)
+//{
+    //int result;
 
-    result = 0;
-    result = ft_printf("%.03s", NULL);
-    printf("\n%d\n", result);
-}
+   // result = 0;
+   // result = ft_printf("%x", 4294967295u);
+  //  printf("\n%d\n", result);
+//}
 // result = ft_printf("%7s%-5s", "hello", "world");
 // printf("\n%d\n", result);
 // result = ft_printf("hello, %s.", "gavin");
